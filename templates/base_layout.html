@@ -1,0 +1,25 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <header class="wrapper">
+        <h1><a href="{% url 'home' %}">Library</a> </h1>
+        <nav>
+          <ul>
+            <li><a href="{% url 'books:create' %}" class="highlight">New book</a> </li>
+          </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{%  extends 'base_layout.html' %}
+
+
+{% block content %}
+  <h1>Book list</h1>
+    <div class="books">
+        <form method="POST">
+            {% csrf_token %}
+            <select name="genre" multiple size="999">
+                <option selected disabled=true>--Select Genre--</option>
+                <option></option>
+                <option>Sci-fi</option>
+                <option>Romance</option>
+                <option>Horror</option>
+                <option>Fiction</option>
+                <option>Biography</option>
+                <option>Adventure</option>
+            </select>
+            <select name="language" multiple size="999">
+                <option selected disabled=true>--Select Language--</option>
+                <option></option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>German</option>
+                <option>French</option>
+                <option>Hindi</option>
+            </select>
+            {% for book in books %}
+            <div class ="book">
+                <h2>{{book.name}}</h2>
+                <p>{{book.author}}</p>
+                <p>{{book.genre}}</p>
+                <p>{{book.language}}</p>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Search">
+        </form>
+    </div>
+{% endblock %}
